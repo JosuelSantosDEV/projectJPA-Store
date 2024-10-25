@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "products")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Inplementação de extratégia que coloca todos os attributos das entidades filhas dessa em uma mesma tabela
+// @Inheritance(strategy = InheritanceType.JOINED) // Inplementação de extratégia que cria tabelas separadas para as entidades filhas
 public class Product {
 
     @Id

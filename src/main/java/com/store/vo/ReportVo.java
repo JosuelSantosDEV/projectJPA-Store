@@ -5,9 +5,9 @@ import java.time.LocalDate;
 
 public class ReportVo {
 
-    private String productName;
-    private Long salesQuantity;
-    private LocalDate dateLastSale;
+    private final String productName;
+    private final Long salesQuantity;
+    private final LocalDate dateLastSale;
 
     public ReportVo(String productName, Long salesQuantity, LocalDate dateLastSale) {
         this.productName = productName;

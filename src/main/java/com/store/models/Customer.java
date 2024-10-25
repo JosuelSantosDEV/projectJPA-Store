@@ -10,14 +10,13 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
-    private  String name;
-    private String cpf;
+    @Embedded // Indica para a JPA que ela deve imbutir aqui a classe seguinte
+    private PersonalData personalData;
 
     public Customer(){}
 
     public Customer(String name, String cpf) {
-        this.name = name;
-        this.cpf = cpf;
+        this.personalData = new PersonalData(name, cpf);
     }
 
     public Long getId() {
@@ -29,18 +28,11 @@ public class Customer {
     }
 
     public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        return this.personalData.getName();
     }
 
     public String getCpf() {
-        return cpf;
+        return this.personalData.getCpf();
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 }
